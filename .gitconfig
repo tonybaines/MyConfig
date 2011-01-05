@@ -1,6 +1,5 @@
 [user]
-	name = 802661379
-	email = tony.baines@bt.com
+# set in /etc/gitconfig so I can reuse this file across machines
 
 [alias]
 	st = status
