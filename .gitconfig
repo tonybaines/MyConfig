@@ -1,0 +1,49 @@
+[user]
+	name = 802661379
+	email = tony.baines@bt.com
+
+[alias]
+	st = status
+	a = add
+	ci = commit
+	ca = commit -a
+	br = branch
+	bra = branch -a
+	sbranch = svn branch -n
+	co = checkout
+	undo = checkout
+	cob = checkout -b
+	df = diff
+	lg = log -p
+	l1 = log -1
+	l2 = log -2
+	l5 = log -5
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	spull = svn rebase
+	spush = svn dcommit
+	sunpushed = svn dcommit -n
+	sbranch = svn branch
+	ls = ls-files
+	fixcommit = rebase --interactive
+	fixlastmsg = commit --ammend
+	cleanindex = update-index --refresh
+[color]
+	ui = "auto"
+[color "branch"]
+	current = red reverse
+	local = red
+	remote = green
+[color "diff"]
+	meta = blue bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whaitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = green
+	untracked = red
+[code]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
