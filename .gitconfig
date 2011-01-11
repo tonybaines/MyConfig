@@ -46,3 +46,6 @@
 [code]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
