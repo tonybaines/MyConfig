@@ -13,6 +13,8 @@
 	undo = checkout
 	cob = checkout -b
 	df = diff
+	ignorechanges = update-index --assume-unchanged
+	unignorechanges = update-index --no-assume-unchanged
 	lg = log -p
 	l1 = log -1
 	l2 = log -2
