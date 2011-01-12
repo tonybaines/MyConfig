@@ -13,6 +13,8 @@
 	undo = checkout
 	cob = checkout -b
 	df = diff
+	ignorechanges = update-index --assume-unchanged
+	unignorechanges = update-index --no-assume-unchanged
 	lg = log -p
 	l1 = log -1
 	l2 = log -2
@@ -27,6 +29,7 @@
 	fixcommit = rebase --interactive
 	fixlastmsg = commit --ammend
 	cleanindex = update-index --refresh
+	ignore = "!f () { local ignore_file=$( git rev-parse --show-cdup ).gitignore arg; for arg in $*; do echo $arg >> $ignore_file; done; sort -u -o $ignore_file $ignore_file; }; f"
 [color]
 	ui = "auto"
 [color "branch"]
@@ -46,6 +49,13 @@
 [code]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1260x886+427+92
+	main-window-view = FileView
+	history-view-vpane-position = 597
+	file-view-hpane-position = 266
+	file-view-vpane-position = 568
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
