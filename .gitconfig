@@ -27,7 +27,7 @@
 	sbranch = svn branch
 	ls = ls-files
 	fixcommit = rebase --interactive
-	fixlastmsg = commit --ammend
+	fixlastmsg = commit --amend
 	cleanindex = update-index --refresh
 	ignore = "!f () { local ignore_file=$( git rev-parse --show-cdup ).gitignore arg; for arg in $*; do echo $arg >> $ignore_file; done; sort -u -o $ignore_file $ignore_file; }; f"
 [color]
