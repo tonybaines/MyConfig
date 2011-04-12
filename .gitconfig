@@ -13,6 +13,7 @@
 	undo = checkout
 	cob = checkout -b
 	df = diff
+	p2usb = push usb
 	ignorechanges = update-index --assume-unchanged
 	unignorechanges = update-index --no-assume-unchanged
 	lg = log -p
