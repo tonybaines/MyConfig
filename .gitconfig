@@ -8,11 +8,12 @@
 	ca = commit -a
 	br = branch
 	bra = branch -a
-	sbranch = svn branch -n
+	stashes = stash list
 	co = checkout
 	undo = checkout
 	cob = checkout -b
 	df = diff
+	p2usb = push usb
 	ignorechanges = update-index --assume-unchanged
 	unignorechanges = update-index --no-assume-unchanged
 	lg = log -p
@@ -22,9 +23,11 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	spull = svn rebase
+	svnsafepull = "!f(){ git stash; git spull; git stash pop; }; f"
 	spush = svn dcommit
 	sunpushed = svn dcommit -n
 	sbranch = svn branch
+	svnconnectremotebranch = "!f() { git checkout -b local/$1 $1; }; f"
 	ls = ls-files
 	fixcommit = rebase --interactive
 	fixlastmsg = commit --amend
@@ -41,7 +44,7 @@
 	frag = magenta bold
 	old = red bold
 	new = green bold
-	whaitespace = red reverse
+	whitespace = red reverse
 [color "status"]
 	added = green bold
 	changed = green
