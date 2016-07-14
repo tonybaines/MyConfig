@@ -1,0 +1,47 @@
+#!/bin/bash
+
+IMG_OK="/usr/share/icons/Adwaita/16x16/emblems/emblem-default.png"
+IMG_WARN="/usr/share/icons/Adwaita/16x16/status/software-update-available.png"
+IMG_SERIOUS="/usr/share/icons/Adwaita/16x16/status/software-update-urgent.png"
+
+directory=$1
+pushd $directory
+
+# Update remote change history
+git svn fetch --parent
+
+# Changes between the latest SVN remote and the local master branch
+change_count=$(git log master..origin/trunk --format=oneline | wc -l)
+
+# Local changes that haven't been shared
+unshared_changes=$(git log origin/trunk..master --format=oneline | wc -l)
+text=""
+img=$IMG_OK
+if [[ $change_count != 0 && $unshared_changes != 0 ]]; then
+  text="[->$change_count:$unshared_changes->"
+  img=$IMG_SERIOUS
+elif [ $change_count != 0 ]; then
+  text="[->$change_count]"
+  img=$IMG_WARN
+elif [ $unshared_changes != 0 ]; then
+  text="[$unshared_changes->]"
+  img=$IMG_WARN
+fi
+
+if [ ! -z "$text" ]; then
+  echo "<txt>$text</txt>"
+fi
+
+
+echo "<img>$img</img>"
+
+
+# Tooltip with recent history
+changes=$(git cl | grep -v UTBUILD)
+if [ -z "$changes" ]; then
+  echo "<tool>No recent changes</tool>"
+else
+  echo "<tool>$changes</tool>"
+fi
+echo "<click>/usr/bin/terminator --working-directory=$directory</click>"
+popd

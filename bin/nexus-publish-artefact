@@ -1,0 +1,44 @@
+#!/bin/bash
+
+if [ "$#" -ne 4 ]; then
+    echo "$0 <group-id> <artifact-id> <version> <path-to-artefact>"
+    exit 1
+fi
+
+group="$1"
+artifactId="$2"
+version="$3"
+path="$4"
+
+if [[ $version == *"-SNAPSHOT" ]]
+then
+  REPO="trs-uta-snapshots"
+else
+  REPO="trs-uta-releases"
+fi
+
+if [[ $path == *".tar.gz" ]]; then
+  packaging="tar.gz"
+elif [[ $path == *".jar" ]]; then
+  packaging="jar"
+elif [[ $path == *".war" ]]; then
+  packaging="war"
+elif [[ $path == *".zip" ]]; then
+  packaging="zip"
+elif [[ $path == *".gz" ]]; then
+  packaging="gz"
+elif [[ $path == *".tar" ]]; then
+  packaging="tar"
+else
+  echo "Unrecognised artefact packaging"
+  exit 1
+fi
+
+mvn deploy:deploy-file -DgroupId="$group" \
+       -DartifactId="$artifactId" \
+       -Dversion="$version" \
+       -DuniqueVersion=false \
+       -Dpackaging="$packaging" \
+       -Dfile="$path" \
+       -DrepositoryId="$REPO" \
+       -Durl="https://collaborate.bt.com/artefacts/content/repositories/$REPO"

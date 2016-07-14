@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+#!/usr/bin/env bash
+
+for repo in $(git-repos); do
+  pushd $repo >/dev/null 2>&1
+  echo "================ $repo ================"
+  git svn fetch
+  popd >/dev/null 2>&1
+done
+

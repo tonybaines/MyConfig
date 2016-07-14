@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo -e $(date +%Y%m%d-%T) "Updating Git $(pwd) from Subversion"
+# Look for uncommitted changes
+if git diff-index --quiet HEAD --; then
+  git spull
+else
+  git svnsafepull
+fi
+echo -e $(date +%Y%m%d-%T) "Update for $(pwd) complete\n\n"

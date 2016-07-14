@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Run the updates in parallel
+projects=$*
+#total=$#
+#i=1
+echo "Updating $projects"
+for working_copy in $projects
+do
+  echo "Starting $working_copy"
+  pushd "$working_copy" >/dev/null
+  #results[i]="$(git-svn-update &)"
+  if [ -d ".git/svn/refs" ]; then
+    git-svn-update &
+  else
+    git pull
+  fi
+  popd >/dev/null
+#  ((i++))
+done
+
+wait
+
+# Show the results
+#j=1
+#while (("$j" <= "$total"))
+#do
+#  echo -e "${results[$j]}"
+#  ((j++))
+#done
+

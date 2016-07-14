@@ -1,0 +1,1 @@
+head pom.xml | grep version | cut -d'>' -f2 | cut -d'<' -f1

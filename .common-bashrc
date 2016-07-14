@@ -1,0 +1,6 @@
+export EDITOR=vim
+
+if [ -f ~/.my-config/.bash_aliases ]; then
+    . ~/.my-config/.bash_aliases
+fi
+

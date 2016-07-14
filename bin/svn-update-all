@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+function logNupdate() {
+  WC=$1
+  echo "Recent Commits for $WC"
+  svn log -v -rBASE:HEAD $WC
+  svn update $WC
+  echo ""
+  echo ""
+  echo ""
+}
+
+for working_copy in $(find . -maxdepth 2 -type d -name .svn -exec dirname {} \;)
+do
+  logNupdate $working_copy
+done
+

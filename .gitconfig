@@ -1,6 +1,3 @@
-[user]
-# set in /etc/gitconfig so I can reuse this file across machines
-
 [alias]
 	st = status
 	a = add
@@ -10,16 +7,16 @@
 	bra = branch -a
 	stashes = stash list
 	co = checkout
-	undo = checkout
 	cob = checkout -b
 	df = diff
-	p2usb = push usb
 	ignorechanges = update-index --assume-unchanged
 	unignorechanges = update-index --no-assume-unchanged
+	cl = log -20 --all --pretty=format:\"%cr %<(15,trunc) %cN %<(60,trunc)%s\"
 	lg = log -p
 	l1 = log -1
 	l2 = log -2
 	l5 = log -5
+	lf = log --oneline --pretty=format:\"%Cblue%h%Creset %cd %Cgreen%cn%Creset%n %s\" --summary --stat --graph --decorate --all
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	spull = svn rebase
@@ -29,10 +26,11 @@
 	sbranch = svn branch
 	svnconnectremotebranch = "!f() { git checkout -b local/$1 $1; }; f"
 	ls = ls-files
+	ignored = ls-files --others -i --exclude-standard
 	fixcommit = rebase --interactive
 	fixlastmsg = commit --amend
 	cleanindex = update-index --refresh
-	ignore = "!f () { local ignore_file=$( git rev-parse --show-cdup ).gitignore arg; for arg in $*; do echo $arg >> $ignore_file; done; sort -u -o $ignore_file $ignore_file; }; f"
+	ignore-old = "!f () { local ignore_file=$( git rev-parse --show-cdup ).gitignore arg; for arg in $*; do echo $arg >> $ignore_file; done; sort -u -o $ignore_file $ignore_file; }; f"
 [color]
 	ui = "auto"
 [color "branch"]
@@ -52,20 +50,13 @@
 [code]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
-[giggle]
-	main-window-maximized = false
-	main-window-geometry = 1260x886+427+92
-	main-window-view = FileView
-	history-view-vpane-position = 597
-	file-view-hpane-position = 266
-	file-view-vpane-position = 568
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
-[user]
-	name = Tony Baines
-	email = tony.baines.1@gmail.com
 [core]
 	autocrlf = input
+	excludesfile=~/.gitignore
 [push]
 	default = simple
+[diff]
+	compactionHeuristic = true

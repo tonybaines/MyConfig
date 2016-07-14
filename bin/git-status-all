@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for repo in $(git-repos); do
+  pushd $repo >/dev/null 2>&1
+  echo "================ $repo ================"
+  git status --untracked-files=no --short
+  git sunpushed | grep -v "Committing"
+  popd >/dev/null 2>&1
+done
+

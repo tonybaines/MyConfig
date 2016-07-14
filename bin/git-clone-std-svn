@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SVN_URL=$1
+shift
+
+git svn clone -s $SVN_URL $*

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+find . -maxdepth 3 -type d -name .git -exec dirname {} \;
+
