@@ -1,6 +1,13 @@
 export EDITOR=vim
 
 if [ -f ~/.my-config/.bash_aliases ]; then
-    . ~/.my-config/.bash_aliases
+    source ~/.my-config/.bash_aliases
 fi
 
+if [ -f ~/.my-config/bashmarks/bashmarks.sh ]; then
+  source ~/.my-config/bashmarks/bashmarks.sh
+fi
+
+if [ -f ~/.my-config/adr-tools ]; then
+  export PATH=$PATH:~/.my-config/adr-tools/src
+fi
