@@ -1,0 +1,16 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "e30bd736-8fe0-452d-ab59-c0f7a97a7ddd"
+  core:
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+  editor:
+    fontSize: 10
+  "sync-settings":
+    _analyticsUserId: "bb2d297f-c986-47bf-ba51-c82d6063a613"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
