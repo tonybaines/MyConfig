@@ -48,15 +48,6 @@ function git-set-project-user {
 }
 complete -W "work personal" git-set-project-user
 
-#alias ant='ant -logger org.apache.tools.ant.listener.AnsiColorLogger'
-#alias anto='ant offline'
-#alias antoc='anto clean'
-#alias awld='antoc war-local-deploy -Dskip.tests=true'
-#alias act='antoc test.unit'
-
-alias usd='cd "$(find ~/workspace/uta/services/uta-package/target/ -type d -name "uta-server-*")/uta-services"'
-alias lite='mvn install -Plite -pl \!services-installer,\!uta-obfuscation-map,\!services-doc,\!services-doc/services-doc-resources,\!services-doc/api,\!acceptance-test -T4'
-
 function full() {
   cmd="mvn clean install -T4"
   if [ -n "$1" ]; then
