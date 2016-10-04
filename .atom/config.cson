@@ -1,19 +1,60 @@
 "*":
+  "asciidoc-preview":
+    compatMode: true
+    renderOnSaveOnly: true
   "atom-beautify":
     general:
       _analyticsUserId: "e30bd736-8fe0-452d-ab59-c0f7a97a7ddd"
   core:
+    disabledPackages: [
+      "plantuml-preview"
+      "atom-language-rust"
+      "terminal-plus"
+      "tokamak"
+      "tokamak-terminal"
+    ]
     themes: [
       "atom-light-ui"
       "atom-light-syntax"
     ]
   editor:
     fontSize: 10
-  "sync-settings":
-    _analyticsUserId: "bb2d297f-c986-47bf-ba51-c82d6063a613"
-  "tree-view": {}
-  welcome:
-    showOnStartup: false
+  "linter-rust":
+    cargoPath: "/usr/local/bin/cargo"
+    rustcPath: "/usr/local/bin/rustc"
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
   "package-sync":
     createOnChange: true
     forceOverwite: true
+  "plantuml-preview":
+    beautifyXml: false
+    dotLocation: "/usr/bin/dot"
+    jarLocation: "/home/tony/plantuml/plantuml.jar"
+    zoomToFit: false
+  "plantuml-viewer":
+    graphvizDotExecutable: "/usr/bin/dot"
+  racer:
+    racerBinPath: "/home/tony/.cargo/bin/racer"
+    rustSrcPath: "/home/tony/rust-src/rust-1.10.0/src/"
+  rustfmt:
+    binPath: "/home/tony/.cargo/bin/rustfmt"
+  "sync-settings":
+    _analyticsUserId: "bb2d297f-c986-47bf-ba51-c82d6063a613"
+  "terminal-plus":
+    core:
+      scrollback: 9999
+  tokamak:
+    binaryDetection: false
+    racerBinPath: "/home/tony/.cargo/bin/racer"
+    rustSrcPath: "/home/tony/rust-src/rust-1.10.0/src/"
+  "tokamak-terminal":
+    core: {}
+    style:
+      fontFamily: "Andale Mono"
+      fontSize: "10"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

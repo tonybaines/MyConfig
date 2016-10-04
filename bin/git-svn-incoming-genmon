@@ -37,7 +37,8 @@ echo "<img>$img</img>"
 
 
 # Tooltip with recent history
-changes=$(git cl | grep -v UTBUILD)
+#changes=$(git cl | grep -v UTBUILD)
+changes=$(git cl)
 if [ -z "$changes" ]; then
   echo "<tool>No recent changes</tool>"
 else

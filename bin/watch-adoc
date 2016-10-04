@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ADOC=$1
+
+ls $ADOC | entr asciidoctor -a toc -r asciidoctor-diagram -D .out/${ADOC%.adoc} $ADOC
