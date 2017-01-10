@@ -13,6 +13,7 @@
       "tokamak"
       "tokamak-terminal"
     ]
+    telemetryConsent: "limited"
     themes: [
       "atom-light-ui"
       "atom-light-syntax"

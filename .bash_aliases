@@ -41,10 +41,12 @@ function git-set-project-user {
       "personal")	email="tony.baines.1@gmail.com";;
       "work")		email="tony.baines@bt.com";;
     esac
+    git config user.email "$email"
+    git config user.name "Tony Baines"
+  else
+    echo "USAGE: git-set-project-user [personal|work]"
   fi
 
-  git config user.email "$email"
-  git config user.name "Tony Baines"
 }
 complete -W "work personal" git-set-project-user
 
