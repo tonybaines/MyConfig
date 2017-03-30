@@ -35,6 +35,13 @@ alias gl='git lol'
 alias gcl='git cl | grep -v UTBUILD'
 alias glf='git lf'
 
+alias t='todo-txt'
+alias tl='todo-txt ls'
+alias t+='todo-txt add'
+alias t-='todo-txt rm'
+alias td='todo-txt done'
+alias te='vi ~/todo.txt'
+
 function git-set-project-user {
   if [ -n "$1" ]; then
     case $1 in

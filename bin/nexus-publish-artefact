@@ -19,6 +19,8 @@ fi
 
 if [[ $path == *".tar.gz" ]]; then
   packaging="tar.gz"
+elif [[ $path == *".tgz" ]]; then
+  packaging="tgz"
 elif [[ $path == *".jar" ]]; then
   packaging="jar"
 elif [[ $path == *".war" ]]; then
